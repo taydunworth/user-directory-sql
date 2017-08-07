@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User Directory</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Index</h1>
+      <section class="directory-box">
+        {{#users}}
+        <div class="user">
+          <a href="/users/{{username}}"><img src="{{avatar}}"></a>
+          <h2><a href="/users/{{username}}">{{name}}</a></h2>
+          <p>{{#job}}{{job}}{{/job}} {{#company}}{{company}}{{/company}}</p>
+          <p>{{^job}}<span class="available">Available for Hire</span>{{/job}}</p>
+        </div>
+        {{/users}}
+      </section>
+    </div>
+  </body>
+</html>
