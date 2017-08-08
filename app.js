@@ -49,18 +49,26 @@ app.get('/users/:id', (req, res) => {
 })
 
 // Create New Robot
-app.post('/', (req, res) => {
+app.post('/add', (req, res) => {
   let newUser = {
     id: rows.length +1,
-    name: req.body.name,
-    colors: req.body.colors,
-    languages: req.body.languages
+    username: req.body.robotUsername,
+    imageurl: req.body.imageurl,
+    email: req.body.robotEmail,
+    university: req.body.robotUniversity,
+    street_number: req.body.robotStreetNumber,
+    address: req.body.robotAddress,
+    city: req.body.robotCity,
+    state: req.body.robotState,
+    job: req.body.robotJob,
+    company: req.body.robotCompany,
+    postal_code: req.body.robotPostalCode
   }
   rows.push(newUser)
-  res.render('/', { users: rows })
+  res.redirect('/', { users: rows })
 })
 
-app.delete('/api/robots/:id', (req, res) => {
+app.delete('/users/:id', (req, res) => {
   const userID = parseInt(req.params.id)
   allRobots = allRobots.filter(bot => bot.id !== robotID)
   res.render('/', { users: rows })
