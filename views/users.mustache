@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>{{name}} Profile</title>
+    <title>{{username}} Profile</title>
     <link href="/style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
@@ -14,16 +14,16 @@
           </div>
           <div class="info-box">
             <h1>{{username}}</h1>
-            <p>{{#address}}{{#city}}{{city}},{{/city}} {{#country}}{{country}}{{/country}}{{/address}} | {{#job}}{{job}},{{/job}} {{^job}}<span class="available">Available for Hire</span>{{/job}} {{#company}}{{company}}{{/company}}</p>
-            <p>{{email}}</p>
+            {{#street_number}}<p><strong>Street: </strong>{{street_number}} {{/street_number}}{{#address}}{{address}}</p> {{/address}}
+            {{#city}}<p><strong>City: </strong>{{city}}</p>{{/city}} {{#country}}<p><strong>Country: </strong>{{country}}</p>{{/country}}
+            <p>{{#job}}<strong>Job: </strong>{{job}}{{/job}} {{^job}}<span class="available">Available for Hire</span>{{/job}}</p> {{#company}}<p><strong>Company: </strong>{{company}}</p>{{/company}}
+            <p><strong>Email: </strong>{{email}}</p>
+            {{#university}}<p><strong>Education: </strong>{{university}}</p>{{/university}}
         </div>
         </div>
         <div class="bottom-box">
           <div class="edu-box">
-            {{#university}}
-            <h5>Education</h5>
-            <p>{{university}}</p>
-            {{/university}}
+
           </div>
         </div>
         <a href="/" class="btn">Back</a>

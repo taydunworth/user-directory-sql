@@ -144,7 +144,7 @@ ul {
   transition: background-color 200ms ease-in-out;
 }
 .form {
-  width: 30%;
+  width: 80%;
 }
 
 .form h2 {
@@ -204,6 +204,10 @@ input:focus {
     justify-content: space-between;
     text-align: left;
   }
+
+  .form {
+    width: 60%;
+  }
 }
 
 /* Desktop Styles */
@@ -219,5 +223,9 @@ input:focus {
 
   .user {
     width: 20%;
+  }
+
+  .form {
+    width: 30%;
   }
 }

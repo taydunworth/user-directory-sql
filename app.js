@@ -40,17 +40,30 @@ app.get('/', function(req, res) {
 
 app.get('/users/:id', (req, res) => {
   database.any(query).then(rows => {
-    const profileData = {
-      userID: req.params.id
-    }
-
-    function findUser(rows) {
-      return rows.id === profileData.userID
-    }
-
-    const oneUser = database.users.find(findUser)
-    res.render('users', { oneUser, users: rows })
+    const userID = parseInt(req.params.id)
+    const myUser = rows.find(user => {
+      return user.id === userID
+    })
+    res.render('users', myUser)
   })
+})
+
+// Create New Robot
+app.post('/', (req, res) => {
+  let newUser = {
+    id: rows.length +1,
+    name: req.body.name,
+    colors: req.body.colors,
+    languages: req.body.languages
+  }
+  rows.push(newUser)
+  res.render('/', { users: rows })
+})
+
+app.delete('/api/robots/:id', (req, res) => {
+  const userID = parseInt(req.params.id)
+  allRobots = allRobots.filter(bot => bot.id !== robotID)
+  res.render('/', { users: rows })
 })
 
 app.listen(3000, function() {
