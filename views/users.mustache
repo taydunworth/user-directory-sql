@@ -10,12 +10,12 @@
       <section class="user-box">
         <div class="top-box">
           <div class="img-box">
-            <img src="{{avatar}}">
+            <img src="{{imageurl}}">
           </div>
           <div class="info-box">
-            <h1>{{name}}</h1>
+            <h1>{{username}}</h1>
             <p>{{#address}}{{#city}}{{city}},{{/city}} {{#country}}{{country}}{{/country}}{{/address}} | {{#job}}{{job}},{{/job}} {{^job}}<span class="available">Available for Hire</span>{{/job}} {{#company}}{{company}}{{/company}}</p>
-            <p>{{email}} | {{phone}}</p>
+            <p>{{email}}</p>
         </div>
         </div>
         <div class="bottom-box">
@@ -27,6 +27,7 @@
           </div>
         </div>
         <a href="/" class="btn">Back</a>
+        <a href="/" class="btn">Delete</a>
       </section>
     </div>
   </body>

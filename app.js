@@ -1,11 +1,10 @@
 const express = require('express')
 const path = require('path')
 const mustacheExpress = require('mustache-express')
-const data = require('data.js')
 const pgp = require('pg-promise')()
+// Declare existence of SQL database
 const database = pgp({ database: 'robot-users' })
 const query = 'SELECT * FROM users'
-const queryuser = 'SELECT * FROM users WHERE id = ${id}'
 
 // SQL Table Creation
 // CREATE TABLE users (
@@ -34,25 +33,24 @@ app.set('views', './views')
 app.set('view engine', 'mustache')
 
 app.get('/', function(req, res) {
-  // res.render('directory-list', data)
   database.any(query).then(rows => {
-    // rows.forEach()
-    console.log(rows)
     res.render('directory-list', { users: rows })
   })
 })
 
 app.get('/users/:id', (req, res) => {
-  const profileData = {
-    username: req.params.id
-  }
+  database.any(query).then(rows => {
+    const profileData = {
+      userID: req.params.id
+    }
 
-  function findUser(user) {
-    return user.username === profileData.username
-  }
+    function findUser(rows) {
+      return rows.id === profileData.userID
+    }
 
-  const oneUser = data.users.find(findUser)
-  res.render('users', oneUser)
+    const oneUser = database.users.find(findUser)
+    res.render('users', { oneUser, users: rows })
+  })
 })
 
 app.listen(3000, function() {

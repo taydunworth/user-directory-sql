@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <h1>Index</h1>
+      <h1>User Directory</h1>
       <section class="directory-box">
         {{#users}}
         <div class="user">
@@ -17,6 +17,26 @@
           <p>{{^job}}<span class="available">Available for Hire</span>{{/job}}</p>
         </div>
         {{/users}}
+      </section>
+      <section class="form">
+        <h2>Add A User</h2>
+        <form class="" action="index.html" method="post">
+          <input type="text" name="robotUsername" value="" placeholder="username" required>
+          <input type="email" name="robotEmail" value="" placeholder="email">
+          <input type="text" name="robotUniversity" value="" placeholder="university">
+          <div class="address-one">
+            <input type="text" name="robotStreetNumber" value="" placeholder="street #" id="robotStreetNumber">
+            <input type="text" name="robotAddress" value="" placeholder="street name" id="robotStreetName">
+          </div>
+          <input type="text" name="robotCity" value="" placeholder="city">
+          <div class="address-two">
+            <input type="text" name="robotState" value="" placeholder="state" id="robotState">
+            <input type="text" name="robotPostalCode" value="" placeholder="postal code" id="robotPostalCode">
+          </div>
+          <input type="text" name="robotJob" value="" placeholder="job">
+          <input type="text" name="robotCompany" value="" placeholder="company">
+          <button type="submit" name="button">Submit</button>
+        </form>
       </section>
     </div>
   </body>
